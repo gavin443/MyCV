@@ -1,0 +1,82 @@
+ /* ===== Terminal hero ===== */
+  .terminal{
+    background:#1C1F26;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(28,31,38,0.45);
+    border:1px solid #2A2E38;
+  }
+  .terminal-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:9px 8px 9px 14px;
+    background:#22262F;
+    border-bottom:1px solid #2A2E38;
+  }
+  .terminal-title{
+    font-family:var(--mono);
+    font-size:12px;
+    color:#8A8F9C;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .terminal-title::before{
+    content:"";
+    width:7px;height:7px;
+    border-radius:50%;
+    background:#10B981;
+    box-shadow:0 0 0 2px rgba(16,185,129,0.15);
+  }
+  .win-controls{display:flex;align-items:stretch;height:28px;}
+  .win-controls button{
+    width:34px;
+    height:28px;
+    background:transparent;
+    border:none;
+    color:#8A8F9C;
+    cursor:default;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--mono);
+  }
+  .win-controls button:hover{background:#2C313C;color:#D7DAE0;}
+  .win-controls button.close:hover{background:#E81123;color:#fff;}
+  .win-controls svg{width:10px;height:10px;display:block;}
+  .terminal-body{
+    padding:24px 22px 28px;
+    font-family:var(--mono);
+    font-size:14px;
+    color:#D7DAE0;
+    min-height:190px;
+  }
+  .terminal-body .ln{display:block;white-space:pre-wrap;word-break:break-word;}
+  .prompt{color:#10B981;}
+  .muted{color:#6B7280;}
+  .ok{color:#10B981;}
+  .hero-name{
+    font-family:var(--mono);
+    font-weight:800;
+    font-size:clamp(28px, 6vw, 44px);
+    color:#fff;
+    margin:14px 0 2px;
+    letter-spacing:-0.5px;
+  }
+  .hero-role{
+    font-family:var(--mono);
+    font-size:clamp(14px,2.6vw,17px);
+    color:var(--purple);
+  }
+  .cursor{
+    display:inline-block;
+    width:9px;height:18px;
+    background:#D7DAE0;
+    margin-left:4px;
+    vertical-align:-3px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+  .hidden-line{opacity:0;}
