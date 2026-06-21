@@ -51,9 +51,9 @@
     font-family:var(--mono);
     font-size:14px;
     color:#D7DAE0;
-    min-height:190px;
+    min-height:270px;
   }
-  .terminal-body .ln{display:block;white-space:pre-wrap;word-break:break-word;}
+  .terminal-body .ln{display:block;white-space:pre-wrap;word-break:break-word; transition: opacity .25s ease;}
   .prompt{color:#10B981;}
   .muted{color:#6B7280;}
   .ok{color:#10B981;}
@@ -64,11 +64,13 @@
     color:#fff;
     margin:14px 0 2px;
     letter-spacing:-0.5px;
+    transition: opacity .4s ease;
   }
   .hero-role{
     font-family:var(--mono);
     font-size:clamp(14px,2.6vw,17px);
     color:var(--purple);
+    transition: opacity .4s ease;
   }
   .cursor{
     display:inline-block;
