@@ -1,158 +1,238 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gavin Trowles — Frontend Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<script src="scripts/script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gavin Trowles — Frontend Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/script.js" defer></script>
 </head>
+
 <body>
-<div class="container">
+    <div class="container">
 
-  <div class="terminal">
-    <div class="terminal-bar">
-      <span class="terminal-title">PS C:\Users\Gavin&gt; resume --build</span>
-      <div class="win-controls" aria-hidden="true">
-        <button type="button" tabindex="-1"><svg viewBox="0 0 10 10"><line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width="1"/></svg></button>
-        <button type="button" tabindex="-1"><svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1"/></svg></button>
-        <button type="button" tabindex="-1" class="close"><svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1"/><line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1"/></svg></button>
-      </div>
+        <div class="terminal">
+            <div class="terminal-bar">
+                <span class="terminal-title">PS C:\Users\Gavin&gt; resume --build</span>
+                <div class="win-controls" aria-hidden="true">
+                    <button type="button" tabindex="-1"><svg viewBox="0 0 10 10">
+                            <line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width="1" />
+                        </svg></button>
+                    <button type="button" tabindex="-1"><svg viewBox="0 0 10 10">
+                            <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor"
+                                stroke-width="1" />
+                        </svg></button>
+                    <button type="button" tabindex="-1" class="close"><svg viewBox="0 0 10 10">
+                            <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1" />
+                            <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1" />
+                        </svg></button>
+                </div>
+            </div>
+            <div class="terminal-body" id="termBody"></div>
+        </div>
+
+        <div class="tabbar" role="tablist" aria-label="Resume sections">
+            <button class="tab" role="tab" aria-selected="true" data-tab="about"><span class="dotcolor"
+                    style="background:var(--purple)"></span>about me</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="experience"><span class="dotcolor"
+                    style="background:var(--blue)"></span>experience</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="skills"><span class="dotcolor"
+                    style="background:var(--green)"></span>skills</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="projects"><span class="dotcolor"
+                    style="background:var(--amber)"></span>projects/</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="contact"><span class="dotcolor"
+                    style="background:var(--pink)"></span>contact details</button>
+        </div>
+
+        <section class="panel active" id="panel-about" role="tabpanel">
+            <h2>about me</h2>
+            <div class="md-comment">&lt;!-- last edited just now --&gt;</div>
+            <div class="about-text" style="margin-top:14px;">
+                <p>Detail-oriented Web Developer with strong experience in ASP.NET, Sitefinity CMS, and modern frontend
+                    workflows including Bootstrap, Sass, JavaScript, and Vue.js. Combines development expertise with UI
+                    design skills in Figma to deliver accessible, user-focused digital experiences. Proven track record
+                    of improving usability, consistency, and development efficiency through well-structured,
+                    maintainable code and scalable solutions.</p>
+
+                <p>Comfortable moving between component-driven frameworks and plain, dependency-free JavaScript
+                    depending on what the project actually needs.</p>
+                <p>Spends a lot of time in CMS-integrated environments — wiring up custom components, sorting out build
+                    tooling, and making sure the thing that works on a laptop also works on mobile.</p>
+            </div>
+ 
+            <div class="tag-row">
+                <span class="tag">#vanilla-js</span>
+                <span class="tag">#cms-integration</span>
+                <span class="tag">#build-tooling</span>
+                <span class="tag">#CSS / sass</span>
+                <span class="tag">#bootstrap</span>
+                <span class="tag">#vue</span>
+            </div>
+        </section>
+
+        <section class="panel" id="panel-experience" role="tabpanel">
+            <h2>experience</h2>
+
+      <div class="job">
+                <div class="job-key">"education":</div>
+                <div class="job-role">Teesside University · BSC Computer Science 2:1</div>
+                <div class="job-meta"> 2003 — ?? </div>
+             
+            </div>
+
+            <div class="job">
+                <div class="job-key">"role":</div>
+                <div class="job-role">Frontend Engineer · Railpen</div>
+                <div class="job-meta">2023 — present</div>
+                <ul>
+                    <li>Built and maintained reusable web components integrated into a CMS-driven pension adminstation
+                        site</li>
+                    <li>Built interactive UI components using Vue.js /Typescript and JavaScript to enhance user
+                        experience</li>
+                    <li>Used Figma to design, iterate and present UI components to stakeholders prior to development
+                    </li>
+                    <li>Translated design concepts into responsive, production-ready code</li>
+                    <li>Designed and created a release management and auditing dashboard ststem</li>
+                    <li>Designed and created the following websites -
+                        <ul>
+                            <li>Magnox Pension Scheme - <a target="blank"
+                                    href="https://www.my-magnox-pension.com/">https://www.my-magnox-pension.com</a>
+                            </li>
+                            <li>Uniper UK Pension Scheme - <a target="blank"
+                                    href="https://ukpensions.uniper.energy/">https://ukpensions.uniper.energy</a> </li>
+                            <li>Pension Toolkit - <a target="blank"
+                                    href="https://pensionscommstoolkit.railpen.com/">https://pensionscommstoolkit.railpen.com</a>
+                            </li>
+                        </ul>
+                    <li>Maintained and continuously improved system functionality through the delivery of new features
+                        and ui design patterns -
+                    </li>
+                    <ul>
+                        <li>Railways pension member portal <a target="blank"
+                                href="https://www.railwayspensions.co.uk/">https://www.railwayspensions.co.uk</a> </li>
+                        <li>British transport police pension member portal <a target="blank"
+                                href="https://www.btppensions.co.uk/">https://www.btppensions.co.uk/</a> </li>
+                    </ul>
+                    <li>Delivered a responsive website by accurately translating Figma designs into production-ready
+                        code - </li>
+                    <ul>
+                        <li>Beyond the Tracks 200 <a target="blank"
+                                href="https://www.beyondthetracks200.co.uk/">https://www.beyondthetracks200.co.uk/</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-key">"role":</div>
+                <div class="job-role">Web Developer · Capita</div>
+                <div class="job-meta"> — </div>
+                <ul>
+                    <li>to do</li>
+                </ul>
+            </div>
+
+
+        </section>
+
+        <section class="panel" id="panel-skills" role="tabpanel">
+            <h2>skills</h2>
+
+            <div class="skill-group">
+                <span class="skill-key">languages</span>
+                <div class="chip-row">
+                    <span class="chip purple">JavaScript</span>
+                    <span class="chip purple">TypeScript</span>
+                    <span class="chip purple">HTML5</span>
+                    <span class="chip purple">CSS / Sass</span>
+                    <span class="chip purple">Jquery</span>
+                    <span class="chip purple">C#</span>
+                    <span class="chip purple">Vue.js</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <span class="skill-key">tooling</span>
+                <div class="chip-row">
+                    <span class="chip blue">figma</span>
+                    <span class="chip blue">npm</span>
+                    <span class="chip blue">git</span>
+                    <span class="chip blue">nuget</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <span class="skill-key">platforms</span>
+                <div class="chip-row">
+                    <span class="chip green">Sitefinity CMS</span>
+                    <span class="chip green">Wordpress CMS</span>
+                    <span class="chip green">.NET / Visual Studio / Visual Code</span>
+                    <span class="chip green">figma</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <span class="skill-key">practices</span>
+                <div class="chip-row">
+                    <span class="chip amber">Accessibility</span>
+                    <span class="chip amber">Responsive layouts</span>
+                    <span class="chip amber">UI components designs</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="panel-projects" role="tabpanel">
+            <h2>projects/</h2>
+            <div class="proj-grid">
+                <div class="proj-card">
+                    <div class="proj-name">forgot-password.html</div>
+                    <div class="proj-desc">Self-service password reset flow, built as a single dependency-free
+                        HTML/CSS/JS file for drop-in CMS use.</div>
+                    <div class="proj-tags"><span class="proj-tag">vanilla-js</span><span class="proj-tag">forms</span>
+                    </div>
+                </div>
+                <div class="proj-card">
+                    <div class="proj-name">sass-build-pipeline</div>
+                    <div class="proj-desc">Visual Studio build integration for compiling Sass to CSS automatically on
+                        build, without extra IDE extensions.</div>
+                    <div class="proj-tags"><span class="proj-tag">msbuild</span><span class="proj-tag">nuget</span>
+                    </div>
+                </div>
+                <div class="proj-card">
+                    <div class="proj-name">component-library</div>
+                    <div class="proj-desc">A small set of framework-free UI components designed to slot cleanly into
+                        existing CMS templates.</div>
+                    <div class="proj-tags"><span class="proj-tag">components</span><span class="proj-tag">css</span>
+                    </div>
+                </div>
+                <div class="proj-card">
+                    <div class="proj-name">vue-to-vanilla</div>
+                    <div class="proj-desc">Migration toolkit for extracting logic out of Vue single-file components into
+                        plain JavaScript modules.</div>
+                    <div class="proj-tags"><span class="proj-tag">migration</span><span class="proj-tag">js</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="panel-contact" role="tabpanel">
+            <h2>contact details</h2>
+            <div class="cmd-line"><span class="prompt2">$</span> open <span class="flag">--mailto</span> <a
+                    href="mailto:gtrowles443@googlemail.com">gtrowles443@googlemail.com</a></div>
+            <div class="cmd-line"><span class="prompt2">$</span> open <span class="flag">--github</span> <a
+                    href="https://github.com/" target="_blank" rel="noopener">github.com/gavin443</a></div>
+            <!--<div class="cmd-line"><span class="prompt2">$</span> open <span class="flag">--linkedin</span> <a href="https://linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/alexrivers</a></div>-->
+            <div class="cmd-line"><span class="prompt2">$</span> echo <span class="flag">--location</span> "Available
+                for remote / hybrid roles"</div>
+        </section>
+
+        <footer>built with HTML, CSS &amp; vanilla JS — no framework required</footer>
     </div>
-    <div class="terminal-body" id="termBody"></div>
-  </div>
-
-  <div class="tabbar" role="tablist" aria-label="Resume sections">
-    <button class="tab" role="tab" aria-selected="true" data-tab="about"><span class="dotcolor" style="background:var(--purple)"></span>about me</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="experience"><span class="dotcolor" style="background:var(--blue)"></span>experience</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="skills"><span class="dotcolor" style="background:var(--green)"></span>skills</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="projects"><span class="dotcolor" style="background:var(--amber)"></span>projects/</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="contact"><span class="dotcolor" style="background:var(--pink)"></span>contact details</button>
-  </div>
-
-  <section class="panel active" id="panel-about" role="tabpanel">
-    <h2>about me</h2>
-    <div class="md-comment">&lt;!-- last edited just now --&gt;</div>
-    <div class="about-text" style="margin-top:14px;">
-      <p>Frontend engineer who likes shipping fast, lightweight interfaces and keeping the build pipeline boring and reliable. Comfortable moving between component-driven frameworks and plain, dependency-free JavaScript depending on what the project actually needs.</p>
-      <p>Spends a lot of time in CMS-integrated environments — wiring up custom components, sorting out build tooling, and making sure the thing that works on a laptop also works on mobile.</p>
-    </div>
-    <div class="tag-row">
-      <span class="tag">#vanilla-js</span>
-      <span class="tag">#cms-integration</span>
-      <span class="tag">#build-tooling</span>
-      <span class="tag">#performance</span>
-    </div>
-  </section>
-
-  <section class="panel" id="panel-experience" role="tabpanel">
-    <h2>experience</h2>
-
-    <div class="job">
-      <div class="job-key">"role":</div>
-      <div class="job-role">Frontend Engineer · Railpen</div>
-      <div class="job-meta">2023 — present</div>
-      <ul>
-        <li>Built and maintained reusable web components integrated into a CMS-driven site</li>
-        <li>Migrated several pages from a framework-based stack to plain HTML/CSS/JS to cut load time</li>
-        <li>Set up Sass compilation and bundling as part of the standard build process</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <div class="job-key">"role":</div>
-      <div class="job-role">Web Developer · Capita</div>
-      <div class="job-meta"> — </div>
-      <ul>
-        <li>to do</li>
-      </ul>
-    </div>
-
-
-  </section>
-
-  <section class="panel" id="panel-skills" role="tabpanel">
-    <h2>skills</h2>
-
-    <div class="skill-group">
-      <span class="skill-key">languages</span>
-      <div class="chip-row">
-        <span class="chip purple">JavaScript</span>
-        <span class="chip purple">TypeScript</span>
-        <span class="chip purple">HTML5</span>
-        <span class="chip purple">CSS / Sass</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <span class="skill-key">tooling</span>
-      <div class="chip-row">
-        <span class="chip blue">Vite</span>
-        <span class="chip blue">Webpack</span>
-        <span class="chip blue">NuGet</span>
-        <span class="chip blue">MSBuild</span>
-        <span class="chip blue">Git</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <span class="skill-key">platforms</span>
-      <div class="chip-row">
-        <span class="chip green">Sitefinity CMS</span>
-        <span class="chip green">.NET / Visual Studio</span>
-        <span class="chip green">Vue.js</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <span class="skill-key">practices</span>
-      <div class="chip-row">
-        <span class="chip amber">Accessibility</span>
-        <span class="chip amber">Responsive Design</span>
-        <span class="chip amber">Performance Budgets</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="panel" id="panel-projects" role="tabpanel">
-    <h2>projects/</h2>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <div class="proj-name">forgot-password.html</div>
-        <div class="proj-desc">Self-service password reset flow, built as a single dependency-free HTML/CSS/JS file for drop-in CMS use.</div>
-        <div class="proj-tags"><span class="proj-tag">vanilla-js</span><span class="proj-tag">forms</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-name">sass-build-pipeline</div>
-        <div class="proj-desc">Visual Studio build integration for compiling Sass to CSS automatically on build, without extra IDE extensions.</div>
-        <div class="proj-tags"><span class="proj-tag">msbuild</span><span class="proj-tag">nuget</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-name">component-library</div>
-        <div class="proj-desc">A small set of framework-free UI components designed to slot cleanly into existing CMS templates.</div>
-        <div class="proj-tags"><span class="proj-tag">components</span><span class="proj-tag">css</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-name">vue-to-vanilla</div>
-        <div class="proj-desc">Migration toolkit for extracting logic out of Vue single-file components into plain JavaScript modules.</div>
-        <div class="proj-tags"><span class="proj-tag">migration</span><span class="proj-tag">js</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="panel" id="panel-contact" role="tabpanel">
-    <h2>contact details</h2>
-    <div class="cmd-line"><span class="prompt2">$</span> open <span class="flag">--mailto</span> <a href="mailto:gtrowles443@googlemail.com">gtrowles443@googlemail.com</a></div>
-    <div class="cmd-line"><span class="prompt2">$</span> open <span class="flag">--github</span> <a href="https://github.com/" target="_blank" rel="noopener">github.com/gavin443</a></div>
-    <!--<div class="cmd-line"><span class="prompt2">$</span> open <span class="flag">--linkedin</span> <a href="https://linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/alexrivers</a></div>-->
-    <div class="cmd-line"><span class="prompt2">$</span> echo <span class="flag">--location</span> "Available for remote / hybrid roles"</div>
-  </section>
-
-  <footer>built with HTML, CSS &amp; vanilla JS — no framework required</footer>
-</div>
 
 </body>
-</html>
 
+</html>
