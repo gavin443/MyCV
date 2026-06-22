@@ -63,7 +63,6 @@ function renderCanvas() {
         `;
 
         fieldDiv.onclick = () => {
-          console.log("here2");
           selectField(row.id, field.id);
         };
 
@@ -92,7 +91,6 @@ function renderInput(field) {
 }
 
 function deleteField(rowId, fieldId) {
-  console.log("here");
   const row = formSchema.find((r) => r.id === rowId);
   row.columns.forEach((c) => {
     c.fields = c.fields.filter((f) => f.id !== fieldId);
