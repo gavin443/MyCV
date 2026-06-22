@@ -46,8 +46,14 @@
     margin:0 auto;
     padding:48px 20px 100px;
     position:relative;
-    z-index:1;
+    z-index:1;
+
   }
+
+  a.link-reset{
+    text-decoration:none;
+    color: var(--ink);
+}
 
 .overflow-link{
 overflow-wrap: break-word;
