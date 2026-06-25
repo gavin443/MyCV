@@ -12809,6 +12809,11 @@ textarea.form-control-lg {
   border-radius: 1.5rem;
 }
 
+@media (max-width: 575.98px) {
+  .btn-lg, .btn-group-lg > .btn {
+    font-size: 1rem;
+  }
+}
 .text_accent-drawn svg {
   left: 0;
   bottom: -8px;
