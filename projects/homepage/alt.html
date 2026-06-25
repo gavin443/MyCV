@@ -1,0 +1,467 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPMI — One pension. Fully in view.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+    .card-img-top{
+        height: 240px;
+    }
+
+.news-card{background:#fff;border:1px solid var(--pale-2);border-radius:1.1rem;overflow:hidden;height:100%;transition:transform .15s,box-shadow .15s;}
+  .news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);}
+  .news-thumb{height:160px;position:relative;}
+  .news-thumb.t-1{background:linear-gradient(140deg,var(--sky),var(--blue));}
+  .news-thumb.t-2{background:linear-gradient(140deg,var(--teal),var(--blue-dark));}
+  .news-thumb.t-3{background:linear-gradient(140deg,var(--navy),var(--blue));}
+  .news-thumb .news-cat{
+    position:absolute;bottom:.85rem;left:.85rem;
+    background:rgba(255,255,255,.92);color:var(--blue-dark);
+    font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:.35rem .7rem;border-radius:50rem;
+  }
+  .news-body{padding:1.4rem;}
+  .news-date{font-size:.78rem;font-weight:700;color:#9AABC9;text-transform:uppercase;letter-spacing:.04em;}
+  .news-title{font-size:1.05rem;color:var(--navy);margin-top:.5rem;}
+  .news-excerpt{font-size:.9rem;margin-top:.5rem;}
+  .news-link{display:inline-flex;align-items:center;gap:.35rem;font-weight:700;font-size:.88rem;color:var(--blue);margin-top:1rem;}
+  .news-link:hover{color:var(--blue-dark);}
+  .news-link .arrow{transition:transform .15s ease;}
+  .news-card:hover .news-link .arrow{transform:translateX(3px);}
+
+
+  :root{
+    --bs-primary:#1D5FE0;
+    --bs-primary-rgb:29,95,224;
+    --navy:#0B2545;
+    --blue:#003060;
+    --blue-dark:#1547B0;
+    --sky:#6FA8FF;
+    --pale:#EFF5FF;
+    --pale-2:#E2EDFF;
+    --teal:#13B3A3;
+    --slate:#4B5A78;
+    --shadow-soft:0 16px 40px -16px rgba(11,37,69,.18);
+    --shadow-card:0 10px 30px -12px rgba(11,37,69,.14);
+  }
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--navy);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display-font{
+    font-weight:700;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  p{color:var(--slate);}
+  a{text-decoration:none;}
+
+  /* ---- buttons ---- */
+  .btn{font-weight:700;border-radius:50rem;padding:.85rem 1.7rem;}
+  .btn-primary{background:var(--blue);border-color:var(--blue);box-shadow:var(--shadow-soft);}
+  .btn-primary:hover,.btn-primary:focus{background:var(--blue-dark);border-color:var(--blue-dark);}
+  .btn-outline-navy{border:2px solid var(--pale-2);color:var(--navy);background:transparent;}
+  .btn-outline-navy:hover{border-color:var(--blue);color:var(--blue);}
+  .btn-outline-light-soft{border:2px solid rgba(255,255,255,.3);color:#fff;background:transparent;}
+  .btn-outline-light-soft:hover{border-color:#fff;color:#fff;}
+  .btn-sm{padding:.6rem 1.1rem;font-size:.875rem;}
+  .btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+
+  /* ---- eyebrow chip ---- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.4rem;
+    font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--blue-dark);background:var(--pale-2);
+    padding:.45rem .9rem;border-radius:50rem;
+  }
+
+  /* ---- nav ---- */
+  .navbar{
+    background:rgba(255,255,255,.85)!important;backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--pale-2);
+  }
+  .navbar-brand{font-family:'Baloo 2';font-weight:800;font-size:1.3rem;color:var(--navy)!important;display:flex;align-items:center;gap:.6rem;}
+  .brand-dot{width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,var(--blue),var(--sky));position:relative;flex:none;}
+  .brand-dot::after{content:"";position:absolute;inset:9px;border-radius:50%;background:#fff;opacity:.9;}
+  .nav-link{color:var(--slate)!important;font-weight:600;}
+  .nav-link:hover{color:var(--blue)!important;}
+
+  /* ---- hero ---- */
+  .hero{
+    padding:5rem 0 4rem;
+    background:radial-gradient(120% 120% at 85% -10%, var(--pale) 0%, #fff 60%);
+    overflow:hidden;
+  }
+  .hero h1{font-size:clamp(2.1rem,5vw,3.5rem);color:var(--navy);}
+  .hero h1 .accent{color:var(--blue);}
+  .stars{color:#F5A623;letter-spacing:2px;}
+
+  /* signature illustration */
+  .pot-stage{position:relative;height:420px;}
+  .pot-blob{
+    position:absolute;inset:0;margin:auto;width:320px;height:320px;
+    border-radius:48% 52% 54% 46% / 50% 46% 54% 50%;
+    background:linear-gradient(155deg,var(--blue) 0%,var(--blue-dark) 100%);
+    box-shadow:var(--shadow-soft);
+    animation:float 7s ease-in-out infinite;
+  }
+  .pot-blob::before{
+    content:"";position:absolute;left:50%;top:14%;width:62%;height:30%;
+    transform:translateX(-50%);border-radius:50%;background:rgba(255,255,255,.16);
+  }
+  .pot-amount{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;}
+  .pot-amount .label{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.8;}
+  .pot-amount .value{font-family:'Baloo 2';font-size:2.5rem;font-weight:800;margin-top:.3rem;}
+  .pot-amount .growth{display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;background:rgba(255,255,255,.18);padding:.35rem .9rem;border-radius:50rem;font-size:.8rem;font-weight:700;}
+  .chip{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;box-shadow:var(--shadow-card);font-weight:800;font-family:'Baloo 2';}
+  .chip-1{width:78px;height:78px;top:5%;left:0;color:var(--blue);font-size:.8rem;text-align:center;line-height:1.1;animation:float 6s ease-in-out infinite .3s;}
+  .chip-2{width:56px;height:56px;bottom:14%;left:-2%;color:var(--teal);font-size:1.3rem;animation:float 8s ease-in-out infinite .6s;}
+  .chip-3{width:64px;height:64px;top:8%;right:0;color:var(--navy);font-size:1.3rem;animation:float 7.5s ease-in-out infinite reverse;}
+  .chip-4{width:46px;height:46px;bottom:0;right:8%;background:var(--teal);color:#fff;font-size:1.1rem;animation:float 6.5s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  @media (prefers-reduced-motion:reduce){.pot-blob,.chip-1,.chip-2,.chip-3,.chip-4{animation:none;}}
+  @media (max-width:991px){.pot-stage{height:320px;}.pot-blob{width:240px;height:240px;}.pot-amount .value{font-size:2rem;}}
+
+  /* ---- logo strip ---- */
+  .strip{border-top:1px solid var(--pale-2);border-bottom:1px solid var(--pale-2);padding:1.6rem 0;}
+  .strip-label{font-size:.78rem;font-weight:700;letter-spacing:.05em;color:#9AABC9;text-transform:uppercase;}
+
+  /* ---- sections ---- */
+  section{padding:6rem 0;}
+  .bg-pale{background:var(--pale);}
+  .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--navy);margin-top:.6rem;}
+  .sec-head p{font-size:1.05rem;margin-top:.7rem;}
+
+  /* ---- steps ---- */
+  .step-card{background:#fff;border-radius:1.75rem;padding:2.1rem 1.75rem;box-shadow:var(--shadow-card);height:100%;}
+  .step-num{
+    width:42px;height:42px;border-radius:50%;background:var(--pale-2);color:var(--blue-dark);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Baloo 2';font-size:1.05rem;margin-bottom:1.1rem;
+  }
+  .step-card.is-2 .step-num{background:var(--blue);color:#fff;}
+  .step-card.is-3 .step-num{background:var(--navy);color:#fff;}
+
+  /* ---- feature cards ---- */
+  .feature-card{background:#fff;border:1px solid var(--pale-2);border-radius:1.1rem;padding:1.6rem;height:100%;transition:transform .15s,box-shadow .15s;}
+  .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);}
+  .feature-ico{width:48px;height:48px;border-radius:14px;background:var(--pale);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:var(--blue);font-size:1.2rem;}
+
+  /* ---- phone mockup ---- */
+  .phone{width:280px;border-radius:34px;background:var(--navy);padding:12px;box-shadow:var(--shadow-soft);margin:0 auto;}
+  .screen{background:#fff;border-radius:24px;padding:1.4rem 1.1rem 1.6rem;}
+  .screen .topbar{display:flex;justify-content:space-between;font-size:.75rem;color:var(--slate);font-weight:700;}
+  .screen .bal-label{font-size:.75rem;color:var(--slate);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:1.1rem;}
+  .screen .bal-value{font-family:'Baloo 2';font-size:1.7rem;color:var(--navy);margin-top:.2rem;}
+  .mini-chart{display:flex;align-items:flex-end;gap:6px;height:88px;margin-top:1.2rem;}
+  .mini-chart i{flex:1;background:linear-gradient(180deg,var(--sky),var(--blue));border-radius:6px 6px 2px 2px;}
+  .screen-row{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding:.7rem .8rem;background:var(--pale);border-radius:12px;font-size:.8rem;font-weight:700;color:var(--navy);}
+  .screen-row .up{color:var(--teal);}
+
+  /* ---- checklist ---- */
+  .checklist{list-style:none;padding:0;display:flex;flex-direction:column;gap:1rem;}
+  .checklist li{display:flex;gap:.7rem;align-items:flex-start;font-weight:600;color:var(--navy);}
+  .tick{flex:none;width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;margin-top:2px;}
+
+  /* ---- testimonial cards ---- */
+  .quote-card{background:#fff;border-radius:1.1rem;padding:1.7rem;box-shadow:var(--shadow-card);height:100%;}
+  .quote-card .txt{color:var(--navy);font-size:.95rem;line-height:1.55;font-weight:500;}
+  .quote-card .who{margin-top:1.1rem;font-size:.85rem;font-weight:700;color:var(--slate);}
+
+  /* ---- cta banner ---- */
+  .cta-banner{background:linear-gradient(135deg,var(--navy),var(--blue-dark));border-radius:2rem;padding:4rem 2.5rem;text-align:center;color:#fff;position:relative;overflow:hidden;}
+  .cta-banner::before,.cta-banner::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.06);}
+  .cta-banner::before{width:240px;height:240px;top:-90px;left:-60px;}
+  .cta-banner::after{width:180px;height:180px;bottom:-70px;right:-40px;}
+  .cta-banner h2{font-size:clamp(1.6rem,3.4vw,2.25rem);position:relative;z-index:1;}
+  .cta-banner p{color:#C9D8F5;margin-top:.8rem;position:relative;z-index:1;max-width:520px;margin-inline:auto;}
+
+  /* ---- FAQ (Bootstrap accordion, restyled) ---- */
+  .accordion-item{border:none;border-bottom:1px solid var(--pale-2);background:transparent;}
+  .accordion-button{
+    font-family:'Inter';font-weight:700;font-size:1.03rem;color:var(--navy);
+    background:transparent;padding:1.3rem .25rem;box-shadow:none!important;
+  }
+  .accordion-button:not(.collapsed){color:var(--navy);background:transparent;}
+  .accordion-button::after{
+    background-image:none;content:"+";font-size:1.1rem;font-weight:800;color:var(--blue);
+    width:28px;height:28px;border-radius:50%;background-color:var(--pale);
+    display:flex;align-items:center;justify-content:center;transition:transform .25s ease;
+  }
+  .accordion-button:not(.collapsed)::after{content:"+";transform:rotate(45deg);background-color:var(--blue);color:#fff;}
+  .accordion-body{padding:0 .25rem 1.3rem;font-size:.95rem;color:var(--slate);max-width:680px;}
+
+  /* ---- footer ---- */
+  footer{background:var(--navy);color:#C9D8F5;padding:4rem 0 1.8rem;}
+  footer h4{color:#fff;font-size:.85rem;font-weight:700;margin-bottom:1rem;}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer ul li{margin-bottom:.6rem;font-size:.9rem;}
+  footer ul a{color:#C9D8F5;}
+  footer ul a:hover{color:#fff;}
+  .foot-brand{display:flex;align-items:center;gap:.6rem;font-family:'Baloo 2';font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:.9rem;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2.8rem;padding-top:1.5rem;font-size:.78rem;color:#8FA3CC;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand" href="#top"><span class="brand-dot"></span>Beacon</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-lg-4 mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#how">How it works</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#app">The app</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+      </ul>
+      <div class="d-flex gap-2 mt-3 mt-lg-0">
+        <a href="#" class="btn btn-outline-navy btn-sm">Log in</a>
+        <a href="#get-started" class="btn btn-primary btn-sm text-white">Get started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="eyebrow">All online · No paperwork</span>
+        <h1 class="mt-3">Your future<br>starts <span class="accent">here.</span></h1>
+        <p class="fs-5 mt-3" style="max-width:480px;">Planning for your retirement has never been easier with your myRPS account.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#get-started" class="btn btn-primary text-white">Find my pensions</a>
+          <a href="#how" class="btn btn-outline-navy">See how it works</a>
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+        <div class="pot-stage" aria-hidden="true">
+          <div class="chip chip-1 fs-2">£</div>
+          <div class="chip chip-2">🌱</div>
+          <div class="chip chip-3">🏦</div>
+          <div class="chip chip-4">✓</div>
+          <div class="pot-blob"></div>
+          <div class="pot-amount">
+            <span class="label">Your pension pot</span>
+            <span class="value">Online</span>
+            <span class="growth">▲ 6.2% this year</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="strip">
+  <div class="container d-flex flex-wrap align-items-center gap-4 gap-md-5">
+    <span class="strip-label"><img src="../assets/tracing-group.png" style="width:150px"></span>
+    <span class="strip-label">Have you been contacted by Validentity/The Tracing Group?</br> Learn more about the work we’re doing to check members are receiving the right benefits.</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="sec-head mb-5" style="max-width:620px;">
+      <span class="eyebrow">How it works</span>
+      <h2>What do you want to do today?</h2>
+      <p>Use the quick links below to find the information you need. You can log in to your myRPS account to ask for an estimate, use the pension planning tools, make a nomination, switch your investment funds, check your details, and more...</p></div>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-ico">⊕</div>
+          <h3 class="h6" style="color:var(--navy);">Combine old pots</h3>
+          <p class="small">Bring pensions from previous jobs into one place, so nothing gets forgotten.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-ico">◔</div>
+          <h3 class="h6" style="color:var(--navy);">See it clearly</h3>
+          <p class="small">One number for your whole pension, updated daily, with no jargon attached.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-ico">↗</div>
+          <h3 class="h6" style="color:var(--navy);">Plan-matched investing</h3>
+          <p class="small">Choose a plan that matches how you feel about risk, from cautious to adventurous.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-ico">☎</div>
+          <h3 class="h6" style="color:var(--navy);">Real people, real answers</h3>
+          <p class="small">Speak with our UK-based pension team whenever you have a question — no call centre script.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FEATURES -->
+<section class="bg-light" id="news">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-5 gap-3">
+      <div class="sec-head mb-0" style="max-width:560px;">
+        <span class="eyebrow">News &amp; insights</span>
+        <h2>Pension news worth your time.</h2>
+        <p>Plain-English explainers and updates from our pension team, no jargon attached.</p>
+      </div>
+      <a href="#" class="btn btn-outline-navy btn-sm flex-shrink-0">View all articles</a>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <a href="#" class="news-card d-block text-decoration-none">
+ <img src="/assets/new_folded-up-newspaper.jpg" class="card-img-top" alt="...">
+          <div class="news-body">
+            <span class="news-date">12 June 2026</span>
+            <h3 class="news-title">What actually happens when you combine two pensions</h3>
+            <p class="news-excerpt">A step-by-step look at the checks we run before anything moves, and how long each stage takes.</p>
+            <span class="news-link">Read the guide <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="news-card d-block text-decoration-none">
+     <img src="/assets/pension-news-round-up.jpg" class="card-img-top" alt="...">
+          <div class="news-body">
+            <span class="news-date">3 June 2026</span>
+            <h3 class="news-title">Why your pot can dip before it grows</h3>
+            <p class="news-excerpt">A short explainer on market ups and downs, and why staying invested usually beats reacting to them.</p>
+            <span class="news-link">Read the article <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="news-card d-block text-decoration-none">
+              <img src="https://cdn3.railpen.com/mp-sitefinity-prod/images/default-source/news-images-(2023-on)/pension-increase-updates-rps.jpg?sfvrsn=6ed92c68_1"
+                            class="card-img-top" alt="...">
+     
+          <div class="news-body">
+            <span class="news-date">27 May 2026</span>
+            <h3 class="news-title">The retirement age questions people ask us most</h3>
+            <p class="news-excerpt">From the state pension age to early access rules, here's what our pension team gets asked every week.</p>
+            <span class="news-link">Read the article <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head mb-5 mx-auto text-center" style="max-width:620px;">
+      <span class="eyebrow">Questions</span>
+      <h2>Good to know</h2>
+    </div>
+    <div class="accordion mx-auto" id="faqAccordion" style="max-width:760px;">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+            Is my money safe with Beacon?
+          </button>
+        </h3>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Yes. Beacon is authorised and regulated by the Financial Conduct Authority, and your pension is held with an independent custodian, not by Beacon itself.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+            How long does combining my pensions take?
+          </button>
+        </h3>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Most transfers complete within two to four weeks, depending on how quickly your old provider responds. We keep you updated at every step.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+            Will I lose any valuable benefits by transferring?
+          </button>
+        </h3>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">We check every pension before transferring it. If a pot has guarantees or benefits worth keeping, we'll flag it and let you decide before anything moves.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+            What does it cost?
+          </button>
+        </h3>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Finding and combining your pensions is free. Once combined, an annual management charge applies, shown clearly before you confirm anything.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-6">
+        <div class="foot-brand"><span class="brand-dot" style="background:linear-gradient(140deg,#6FA8FF,#fff);"></span>Beacon</div>
+        <p style="color:#8FA3CC;font-size:.9rem;max-width:280px;">A clearer way to see, combine, and grow your pension — built for people who'd rather not think about it more than they have to.</p>
+      </div>
+      <div class="col-lg-2-4 col-lg col-6">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#app">The app</a></li>
+        </ul>
+      </div>
+      <div class="col-lg col-6">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="col-lg col-6">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      Beacon Pensions Ltd is authorised and regulated by the Financial Conduct Authority. The value of your pension can go down as well as up, and you may get back less than was paid in. This is a demonstration page; figures shown are illustrative only.
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap 5 JS bundle (handles navbar collapse + accordion) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
